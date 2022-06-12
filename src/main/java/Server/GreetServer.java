@@ -1,3 +1,5 @@
+package Server;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,7 +13,7 @@ public class GreetServer {
     private PrintWriter out;
     private BufferedReader in;
 
-    public void start(int port) throws IOException {
+    public void startServer(int port) throws IOException {
         // when creating a server - it will have to be given a port number from which it must run at
         // once the port number number has been provided the server object is then created and starts listening for client connection
         serverSocket = new ServerSocket(port);
@@ -27,10 +29,13 @@ public class GreetServer {
         String greeting = in.readLine();
         //at this point the server should have a string value of the message sent by the client
         // further processing can happen from this point
-        if ("hello server".equals(greeting)) {
-            out.println("hello client");
+        if ("activate_calculator".equals(greeting)) {
+            out.println("Calculator activated");
+        } else if("Quit".equals(greeting)){
+            out.println("Quiting program");
+            stop();
         } else {
-            out.println("unrecognised greeting");
+            System.out.println("Unrecognised command");
         }
 
     }
@@ -50,7 +55,7 @@ public class GreetServer {
     public static void main(String[] args) throws IOException {
         // a quite weired thing about servers is that when you start them from their main, you also need to have created an instance of them as follows
         GreetServer server = new GreetServer();
-        server.start(5000);
+        server.startServer(5000);
 
     }
 }

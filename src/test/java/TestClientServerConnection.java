@@ -1,3 +1,4 @@
+import Client.GreetClient;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -11,8 +12,8 @@ public class TestClientServerConnection {
 
         GreetClient client = new GreetClient();
         client.startConnection("localhost", 5000);
-        String response = client.sendMessage("hello server");
-        assertEquals("hello client", response);
+        String response = client.sendMessage("activate_calculator");
+        assertEquals("Calculator activated", response);
 
     }
 }
