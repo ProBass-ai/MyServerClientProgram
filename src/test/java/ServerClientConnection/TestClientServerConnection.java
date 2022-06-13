@@ -15,7 +15,7 @@ public class TestClientServerConnection {
         StoreClientSide client = new StoreClientSide();
         client.startConnection("localhost", 5000);
         String response = client.sendMessage("start_shopping");
-        assertEquals("Online Shopping Active Now", response);
+        assertEquals("Online Shopping: Active Now", response);
 
     }
 }

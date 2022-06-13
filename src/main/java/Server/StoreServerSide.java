@@ -30,7 +30,7 @@ public class StoreServerSide {
         //at this point the server should have a string value of the message sent by the client
         // further processing can happen from this point
         if ("start_shopping".equals(greeting)) {
-            out.println("Online Shopping Active Now\n...sending you to store.");
+            out.println("Online Shopping: Active Now\n...sending you to store.");
         } else if("quit".equals(greeting)){
             out.println("Quitting program");
             stop();
