@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class GreetServer {
+public class StoreServerSide {
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private PrintWriter out;
@@ -29,10 +29,11 @@ public class GreetServer {
         String greeting = in.readLine();
         //at this point the server should have a string value of the message sent by the client
         // further processing can happen from this point
-        if ("activate_calculator".equals(greeting)) {
-            out.println("Calculator activated");
-        } else if("Quit".equals(greeting)){
-            out.println("Quiting program");
+        if ("start_shopping".equals(greeting)) {
+            out.println("Online Shopping Active Now\n...sending you to store.");
+
+        } else if("quit".equals(greeting)){
+            out.println("Quitting program");
             stop();
         } else {
             System.out.println("Unrecognised command");
@@ -54,7 +55,7 @@ public class GreetServer {
 
     public static void main(String[] args) throws IOException {
         // a quite weired thing about servers is that when you start them from their main, you also need to have created an instance of them as follows
-        GreetServer server = new GreetServer();
+        StoreServerSide server = new StoreServerSide();
         server.startServer(5000);
 
     }

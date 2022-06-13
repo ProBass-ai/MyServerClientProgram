@@ -1,4 +1,4 @@
-import Client.GreetClient;
+import Client.StoreClientSide;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -10,10 +10,10 @@ public class TestClientServerConnection {
     @Test
     public void givenGreetingClient_whenServerRespondsWhenStarted_thenCorrect() throws IOException {
 
-        GreetClient client = new GreetClient();
+        StoreClientSide client = new StoreClientSide();
         client.startConnection("localhost", 5000);
-        String response = client.sendMessage("activate_calculator");
-        assertEquals("Calculator activated", response);
+        String response = client.sendMessage("start_shopping");
+        assertEquals("Online Shopping Active Now", response);
 
     }
 }

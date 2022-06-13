@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class GreetClient {
+public class StoreClientSide {
     private Socket clientSocket;
     private PrintWriter out;
     private BufferedReader in;
@@ -41,17 +41,17 @@ public class GreetClient {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println("Activating SimpleCalc-Client...");
+        System.out.println("M&M Shopping: now online");
 
-        GreetClient client = new GreetClient();
+        StoreClientSide client = new StoreClientSide();
 
         scanner = new Scanner(System.in);
-        System.out.println("Do you wish to start the program(y/n)?");
+        System.out.println("Do you wish to start shopping(y/n)?");
         String userInput = scanner.nextLine();
 
         if (userInput.equals("y")) {
             client.startConnection("localhost", 5000);
-            client.sendMessage("activate_calculator");
+            client.sendMessage("start_shopping");
         } else if (userInput.equals("n")) {
 
         }
