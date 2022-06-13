@@ -31,7 +31,6 @@ public class StoreServerSide {
         // further processing can happen from this point
         if ("start_shopping".equals(greeting)) {
             out.println("Online Shopping Active Now\n...sending you to store.");
-
         } else if("quit".equals(greeting)){
             out.println("Quitting program");
             stop();

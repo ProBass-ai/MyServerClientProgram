@@ -1,3 +1,5 @@
+package ServerClientConnection;
+
 import Client.StoreClientSide;
 import org.testng.annotations.Test;
 
