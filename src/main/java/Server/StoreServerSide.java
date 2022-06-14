@@ -17,25 +17,35 @@ public class StoreServerSide {
         // when creating a server - it will have to be given a port number from which it must run at
         // once the port number number has been provided the server object is then created and starts listening for client connection
         serverSocket = new ServerSocket(port);
+
         // this is the point at which client connection is bindend to that of the server
         clientSocket = serverSocket.accept();
+
 
         // messeges sent to the client are sent using PrintWriter
         out = new PrintWriter(clientSocket.getOutputStream(), true);
         // and messeges recieved from the client are read using BufferedReader
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
+        out.print("Online Shopping: Active Now");
+
         // the readline() method reads input from the client on a line
         String greeting = in.readLine();
         //at this point the server should have a string value of the message sent by the client
         // further processing can happen from this point
         if ("start_shopping".equals(greeting)) {
-            out.println("Online Shopping: Active Now\n...sending you to store.");
+
+            out.println("...sending you to store.");
+
         } else if("quit".equals(greeting)){
+
             out.println("Quitting program");
             stop();
+
         } else {
+
             System.out.println("Unrecognised command");
+
         }
 
     }

@@ -1,9 +1,6 @@
 package Client;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -11,6 +8,7 @@ public class StoreClientSide {
     private Socket clientSocket;
     private PrintWriter out;
     private BufferedReader in;
+
     private static Scanner scanner;
 
 
@@ -50,8 +48,10 @@ public class StoreClientSide {
         String userInput = scanner.nextLine();
 
         if (userInput.equals("y")) {
+
             client.startConnection("localhost", 5000);
             client.sendMessage("start_shopping");
+
         } else if (userInput.equals("n")) {
 
         }
